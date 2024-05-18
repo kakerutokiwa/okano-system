@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us - 岡野授業確認システム</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        .header a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .menu-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .menu {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .menu a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 22px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+        .menu a:hover {
+            background-color: #575757;
+        }
+        .menu .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 36px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .content h1 {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <span class="menu-button" onclick="toggleMenu()">&#9776;</span>
+    <a href="Home.html">岡野授業確認システム</a>
+</div>
+
+<div id="menu" class="menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+    <a href="Home.html">Home</a>
+    <a href="利用規約.html">利用規約</a>
+    <a href="about.html">About us</a>
+</div>
+
+<div class="content">
+    <h1>About us</h1>
+    <p>岡野授業確認システムは、教育の向上を目指し、最新の技術を活用して授業管理と確認を行うためのシステムです。当システムは、生徒と教師の双方にとって便利で効率的な方法で授業内容を管理し、確認することを可能にします。</p>
+
+    <h2>私たちの使命</h2>
+    <p>私たちの使命は、教育現場において効果的な授業管理ツールを提供し、教育の質を高めることです。技術の進歩を取り入れ、常に最先端のシステムを提供することで、生徒の学びをサポートします。</p>
+
+    <h2>私たちのビジョン</h2>
+    <p>岡野授業確認システムは、全ての生徒が最高の教育を受けられる環境を作り出すことを目指しています。私たちは、教育における公平性とアクセシビリティの向上に努めています。</p>
+
+    <h2>開発者紹介</h2>
+    <p>当システムは、千年に一度の天才ど呼ばれる菊池栄人により開発されています。教育現場のニーズを深く理解し、それに応えるために日々努力しています。</p>
+</div>
+
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById("menu");
+        if (menu.style.width === "250px") {
+            menu.style.width = "0";
+        } else {
+            menu.style.width = "250px";
+        }
+        var button = document.querySelector(".menu-button");
+        if (button.innerHTML === "&#9776;") {
+            button.innerHTML = "&times;";
+        } else {
+            button.innerHTML = "&#9776;";
+        }
+    }
+</script>
+
+</body>
+</html>

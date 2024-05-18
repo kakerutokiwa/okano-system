@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00FF00;
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-form {
+            background-color: #000000;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            color: #00FF00;
+        }
+        .login-form h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .login-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #00FF00;
+            border-radius: 5px;
+            background-color: #000000;
+            color: #00FF00;
+        }
+        .login-form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #00FF00;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .login-form input[type="submit"]:hover {
+            background-color: #00CC00;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-top: -15px;
+            margin-bottom: 15px;
+        }
+    </style>
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            if (username === 'Okano' && password === '0000') {
+                window.location.href = 'Home.html';
+            } else {
+                var errorMessage = document.getElementById('error-message');
+                errorMessage.textContent = 'ユーザー名またはパスワードが正しくありません。';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <form class="login-form" onsubmit="validateForm(event)">
+            <h2>Login</h2>
+            <div id="error-message" class="error-message"></div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+</body>
+</html>

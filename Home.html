@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ホーム - 岡野授業確認システム</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            
+        }
+        .header a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .menu-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .menu {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .menu a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 22px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+        .menu a:hover {
+            background-color: #575757;
+        }
+        .menu .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 36px;
+        }
+        .content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding-top: 100px; /* Adjusted for fixed header */
+            height: calc(100vh - 100px); /* Adjust height to avoid overflow */
+        }
+        .left-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .left-panel div {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 18px;
+            width: 200px;
+        }
+        .left-panel div.second {
+            line-height: 1.5; /* Adjust line height for better readability */
+        }
+        .subject-buttons {
+            text-align: center;
+        }
+        .subject-button {
+            display: block;
+            width: 200px;
+            padding: 15px;
+            margin: 40px auto;  /* Increase margin for more space between buttons */
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            position: relative;
+        }
+        .subject-button .info-window {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 210px;  /* Display window to the right */
+            width: 300px;
+            padding: 10px;
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            text-align: left;
+            opacity: 0;
+            transition: opacity 2s;
+        }
+        .subject-button:hover .info-window {
+            display: block;
+            opacity: 1;
+        }
+        .subject-kokugo { background-color: red; }
+        .subject-sugaku { background-color: lightblue; }
+        .subject-hoken { background-color: darkblue; }
+        .subject-kateika { background-color: orange; }
+        .subject-eigo { background-color: yellow; color: black; }
+        .subject-shakai { background-color: brown; }
+    </style>
+</head>
+<div class="header">
+    <span class="menu-button" onclick="toggleMenu()">&#9776;</span>
+    <a href="#">岡野授業確認システム</a>
+    <a href="Login.html" class="logout-button" style="margin-left: auto;">ログアウト</a>
+</div>
+
+
+
+<div id="menu" class="menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+    <a href="Home.html">Home</a>
+    <a href="利用規約.html">利用規約</a>
+    <a href="about.html">About us</a>
+</div>
+
+<div class="content-wrapper">
+    <div class="left-panel">
+        <div>６時間５０分授業</div>
+        <div class="second">生徒会朝会有<br>８：１５集合</div>
+    </div>
+    <div class="subject-buttons">
+        <a href="#" class="subject-button subject-kokugo">
+            国語
+            <div class="info-window">
+                <p><strong>科目名:</strong> 国語</p>
+                <p><strong>場所:</strong> 教室</p>
+                <p><strong>内容:</strong> 握手</p>
+                <p><strong>備考:</strong> 問題集と漢字ドリル持参すること</p>
+            </div>
+        </a>
+        <a href="#" class="subject-button subject-sugaku">
+            数学
+            <div class="info-window">
+                <p><strong>科目名:</strong> 数学</p>
+                <p><strong>場所:</strong> 教室</p>
+                <p><strong>内容:</strong> 因数分解</p>
+                <p><strong>備考:</strong> 演習問題を予習しておくこと</p>
+            </div>
+        </a>
+        <a href="#" class="subject-button subject-hoken">
+            保体
+            <div class="info-window">
+                <p><strong>科目名:</strong> 保体</p>
+                <p><strong>場所:</strong> 体育館</p>
+                <p><strong>内容:</strong> バスケットボール</p>
+                <p><strong>備考:</strong> 筆記用具を持参すること</p>
+            </div>
+        </a>
+        <a href="#" class="subject-button subject-kateika">
+            家庭科
+            <div class="info-window">
+                <p><strong>科目名:</strong> 家庭科</p>
+                <p><strong>場所:</strong> 家庭科室</p>
+                <p><strong>内容:</strong> 調理実習</p>
+                <p><strong>備考:</strong> エプロンを持参すること</p>
+            </div>
+        </a>
+        <a href="#" class="subject-button subject-eigo">
+            英語
+            <div class="info-window">
+                <p><strong>科目名:</strong> 英語</p>
+                <p><strong>場所:</strong> 教室</p>
+                <p><strong>内容:</strong> Unit1-2</p>
+                <p><strong>備考:</strong> ニューリスを持参すること</p>
+            </div>
+        </a>
+        <a href="#" class="subject-button subject-shakai">
+            社会
+            <div class="info-window">
+                <p><strong>科目名:</strong> 社会</p>
+                <p><strong>場所:</strong> 教室</p>
+                <p><strong>内容:</strong> 富国強兵</p>
+                <p><strong>備考:</strong> 政権担当者表を持参すること</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById("menu");
+        if (menu.style.width === "250px") {
+            menu.style.width = "0";
+        } else {
+            menu.style.width = "250px";
+        }
+        var button = document.querySelector(".menu-button");
+        if (button.innerHTML === "&#9776;") {
+            button.innerHTML = "&times;";
+        } else {
+            button.innerHTML = "&#9776;";
+        }
+    }
+</script>
+
+</body>
+</html>
